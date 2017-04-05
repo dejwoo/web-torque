@@ -1,4 +1,5 @@
-var login = require('./classic-login');
+var loginStrategy = require('./classic-login');
+var jwtStrategy = require('./jwt.js');
 var User = require('../models/user');
 
 module.exports = function(passport) {
@@ -14,7 +15,8 @@ module.exports = function(passport) {
         });
     });
     //clasic login from the login form
-    login(passport);
+    loginStrategy(passport);
+    jwtStrategy(passport);
     //TODO: Social Networks signups, logins
 
 }

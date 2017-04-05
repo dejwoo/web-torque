@@ -8,51 +8,59 @@ var jwt = require('jsonwebtoken');
 
 var passport = require("passport");
 
-
+var morgan = require("morgan");
 var mongoose = require("mongoose");
 /**
  * User model for authentication of JWT
  */
 var User = require("./models/user.js");
-
+var passportInit = require("./passport/init.js");
 /**
  * Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
  */
+var path = require('path');
 var dotenv = require("dotenv");
 dotenv.load({
-	path: 'config.env'
+	path: path.join(__dirname, './config.env')
 });
 
 /**
  * Connect to MongoDB.
  */
-
-mongoose.connect(process.env.MONGODB_URI, {
+var mongoDbOptions = {
 	user: process.env.MONGODB_USER,
 	pass: process.env.MONGODB_PASS,
 	server: {
 		ssl: true
+	},
+	replSet: {
+		socketOptions: {
+			keepAlive: 120
+		}
 	}
-});
-mongoose.connection.on('error', function() {
-	console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
-	//TODO: Logic for gracefull reconnection and persistent db writes when no connection is reached.
-	process.exit();
-});
+};
+mongoose.connect(process.env.MONGODB_URI, mongoDbOptions).then(
+	() => {
+		console.log('app.mongoose: Connection to MongoDB initialized');
+	},
+	err => {
+		console.log('%s MongoDB connection error. Please make sure MongoDB is running.', chalk.red('✗'));
+		//TODO: Logic for gracefull reconnection and persistent db writes when no connection is reached.
+		process.exit();
+	}
+);
 
 /**
  * Passport configuration
  */
-
-
-
-passport.use(strategy);
+passportInit(passport);
 
 var app = express();
-app.use()
-	/**
-	 *  Passport middleware for authentication
-	 */
+app.use(require('cookie-parser')());
+app.use(require('express-session')({ secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true }));
+/**
+ *  Passport middleware for authentication
+ */
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -67,42 +75,16 @@ app.use(bodyParser.urlencoded({
 // parse application/json
 app.use(bodyParser.json())
 
+
+/**
+ * Express.js routes handling
+ */
+
+
 app.get("/", function(req, res) {
 	res.json({
 		message: "Express is up!"
 	});
-});
-
-app.post("/login", function(req, res) {
-	if (req.body.name && req.body.password) {
-		var name = req.body.name;
-		var password = req.body.password;
-	}
-	// usually this would be a database call:
-	var user = users[_.findIndex(users, {
-		name: name
-	})];
-	if (!user) {
-		res.status(401).json({
-			message: "no such user found"
-		});
-	}
-
-	if (user.password === req.body.password) {
-		// from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
-		var payload = {
-			id: user.id
-		};
-		var token = jwt.sign(payload, jwtOptions.secretOrKey);
-		res.json({
-			message: "ok",
-			token: token
-		});
-	} else {
-		res.status(401).json({
-			message: "passwords did not match"
-		});
-	}
 });
 
 app.listen(8000, function() {

@@ -49,5 +49,23 @@ module.exports = {
       issuer: process.env.JWTSETTINGS_ISSUER,
       audience: process.env.JWTSETTINGS_AUDIENCE
     });
+  },
+  /**
+   * Verifies JWT token, cb is passed error and if id is correct for supplied token
+   * @param  {String}   token JWT token to verify
+   * @param  {String}   id    ObjectId string to compare against decoded token
+   * @param  {Function} cb    Callback function
+   * @return {None}         TODO: when cb is not supplied, behave synchronously
+   */
+  verifyToken: function(token, id, cb) {
+    jwt.verifyToken(token, process.env.JWTSETTINGS_SECRET, {
+      algorithm: process.env.JWTSETTINGS_ALGORITHM,
+      expiresInMinutes: process.env.JWTSETTINGS_EXPIRESINMINUTES,
+      issuer: process.env.JWTSETTINGS_ISSUER,
+      audience: process.env.JWTSETTINGS_AUDIENCE
+    }, function (err, decoded) {
+      //TODO stop assuming cb is supplied if it is not supplied then  we need to act synchronously
+      cb(err, decoded == id);
+    });
   }
 };

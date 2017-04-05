@@ -3,9 +3,10 @@ var Schema = mongoose.Schema;
 
 // set up a mongoose model
 module.exports = mongoose.model('User', new Schema({
-	username: String;
-	password: String;
-	firstName: String;
-	lastName: String;
-	createdOn: Date;
+	username: String,
+	password: String,
+	firstName: String,
+	lastName: String,
+	createdOn: Date
 }));
+//TODO Create midleware validators for User
