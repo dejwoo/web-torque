@@ -1,15 +1,14 @@
 ﻿<div class="col-md-6 col-md-offset-3">
-    <h2>Hi {{currentUser.firstName}}!</h2>
-    <p>You're logged in with Angular 2 and Webpack!!</p>
-    <h3>All bluetooth devices:</h3>
-    <div class="d-flex flex-row">
-        <div class="well p-4" *ngFor="let device of devices">
-            <h4>{{device.name}}<small>{{device.id}}</small></h4>
+    <h3>All queried bluetooth devices:</h3>
+    <div class="d-flex flex-column">
+        <div class="well p-12" *ngFor="let device of devices">
+            <h4>{{device.name || "(No Name)"}}<small><em>id:</em>{{device.id}}</small></h4>
             <p>Connected: {{device.gatt.connected}}</p>
             <a *ngIf="!device.gatt.connected" class="btn btn-success" (click)="getBluetoothDevices()">Connect</a>
         </div>
     </div>
-    <a class="btn btn-info" (click)="getBluetoothDevices()">Get BT device info</a>
-    <p><a [routerLink]="['/login']">Logout</a></p>
-    <p><a [routerLink]="['/bt']">Bluetooth</a></p>
+    <a class="btn btn-info" (click)="getBluetoothDevices()" style="margin-top:1em;">Get BT device info</a>
+    <div style="margin-top:2em;">
+        <em>It is not possible to automate queries of BT devices in this stage of Web Bluetooth API, and it will probably not be allowed in the future, you know security risks. Right now query can be started only after user action.</em>
+    </div>
 </div>

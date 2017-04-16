@@ -5,3 +5,8 @@
 .help-block {
     font-size: 12px;
 }
+.no-register {
+	bottom: 0;
+    position: absolute;
+    right: 0;
+}

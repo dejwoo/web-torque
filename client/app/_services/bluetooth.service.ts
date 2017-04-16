@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromPromise';
+import 'rxjs/add/observable/throw';
 import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
 import { AlertService } from '../_services/index';
 // import { RSVP } from 'rsvp';
@@ -20,14 +21,14 @@ export class BluetoothService {
 			return Observable.fromPromise(promise);
 		}
 		return Observable.throw(new Error('Web Bluetooth API is not available.\n' +
-          'Please make sure the "Experimental Web Platform features" flag is enabled.'));
+          'Please make sure the "Experimental Web Platform features" flag is enabled in Chrome Flags settings.'));
 	}
 	private isWebBluetoothEnabled():Boolean {
     if (navigator.bluetooth) {
       return true;
     } else {
       this.alertService.error('Web Bluetooth API is not available.\n' +
-          'Please make sure the "Experimental Web Platform features" flag is enabled.');
+          'Please make sure the "Experimental Web Platform features" flag is enabled in Chrome Flags settings.');
       return false;
     }
   }

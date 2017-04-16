@@ -30,4 +30,7 @@ export class RegisterComponent {
                     this.loading = false;
                 });
     }
+    showHelp() {
+        this.alertService.warn("Pssst, if you really do not want to register, please use this super secret account(u: test, p: test).\nJust FYI, app does not store anyting in DB yet, it is mocked at FE layer.");
+    }
 }

@@ -3,7 +3,7 @@ import { MockBackend, MockConnection } from '@angular/http/testing';
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     // array in local storage for registered users
-    let mockUser = [{id: "fake-id",
+    let mockUser = [{id: 1,
         username: "test",
         password: "test",
         firstName: "firstName",
