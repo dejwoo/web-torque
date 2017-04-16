@@ -1,20 +1,16 @@
+"use strict";
 var _ = require("lodash");
-
+/**
+ * Express.js + middleware
+ */
 var express = require("express");
 var expressSession = require('express-session');
-
+var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var jwt = require('jsonwebtoken');
-
 var passport = require("passport");
-
-var morgan = require("morgan");
+//mongoDB-connector
 var mongoose = require("mongoose");
-/**
- * User model for authentication of JWT
- */
-var User = require("./models/user.js");
-var passportInit = require("./passport/init.js");
 /**
  * Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.
  */
@@ -23,7 +19,6 @@ var dotenv = require("dotenv");
 dotenv.load({
 	path: path.join(__dirname, './config.env')
 });
-
 /**
  * Connect to MongoDB.
  */
@@ -53,6 +48,7 @@ mongoose.connect(process.env.MONGODB_URI, mongoDbOptions).then(
 /**
  * Passport configuration
  */
+var passportInit = require("./passport/init.js");
 passportInit(passport);
 
 var app = express();
@@ -77,8 +73,10 @@ app.use(bodyParser.json())
 
 
 /**
- * Express.js routes handling
+ * Primary app routes.
  */
+var apiUserRoute = require("./routes/api-user.js");
+app.use('/api', apiUserRoute);
 
 
 app.get("/", function(req, res) {

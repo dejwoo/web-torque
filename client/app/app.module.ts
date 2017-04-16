@@ -13,8 +13,9 @@ import { routing }        from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, BluetoothService } from './_services/index';
 import { HomeComponent } from './home/index';
+import { BluetoothComponent } from './bluetooth/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 
@@ -30,13 +31,15 @@ import { RegisterComponent } from './register/index';
         AlertComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        BluetoothComponent
     ],
     providers: [
         AuthGuard,
         AlertService,
         AuthenticationService,
         UserService,
+        BluetoothService,
 
         // providers used to create fake backend
         fakeBackendProvider,

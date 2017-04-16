@@ -1,0 +1,15 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h2>Hi {{currentUser.firstName}}!</h2>
+    <p>You're logged in with Angular 2 and Webpack!!</p>
+    <h3>All bluetooth devices:</h3>
+    <div class="d-flex flex-row">
+        <div class="well p-4" *ngFor="let device of devices">
+            <h4>{{device.name}}<small>{{device.id}}</small></h4>
+            <p>Connected: {{device.gatt.connected}}</p>
+            <a *ngIf="!device.gatt.connected" class="btn btn-success" (click)="getBluetoothDevices()">Connect</a>
+        </div>
+    </div>
+    <a class="btn btn-info" (click)="getBluetoothDevices()">Get BT device info</a>
+    <p><a [routerLink]="['/login']">Logout</a></p>
+    <p><a [routerLink]="['/bt']">Bluetooth</a></p>
+</div>
