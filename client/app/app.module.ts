@@ -18,6 +18,7 @@ import { HomeComponent } from './home/index';
 import { BluetoothComponent } from './bluetooth/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import { NavComponent } from './nav/index';
 
 @NgModule({
     imports: [
@@ -32,7 +33,8 @@ import { RegisterComponent } from './register/index';
         HomeComponent,
         LoginComponent,
         RegisterComponent,
-        BluetoothComponent
+        BluetoothComponent,
+        NavComponent
     ],
     providers: [
         AuthGuard,
