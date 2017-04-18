@@ -2,7 +2,8 @@
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="/">WebTorque</a>
+  <a class="navbar-brand" [routerLink]="['/']" *ngIf="!currentUser">WebTorque</a>
+  <a class="navbar-brand" [routerLink]="['/dashboard']" *ngIf="currentUser">WebTorque</a>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active"  [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
@@ -10,6 +11,15 @@
       </li>
       <li class="nav-item" [routerLink]="['/bt']" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/bt']">Bluetooth</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/real-time']" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/real-time']">Real-Time Monitor</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/recored']" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/recored']">Recorded data</a>
+      </li>
+      <li class="nav-item" [routerLink]="['/help']" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/help']">Help</a>
       </li>
     </ul>
     <ul class="navbar-nav">

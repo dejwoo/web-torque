@@ -19,7 +19,9 @@ import { BluetoothComponent } from './bluetooth/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { NavComponent } from './nav/index';
-
+import { RealtimeComponent } from './realtime/index';
+import { DashboardComponent } from './dashboard/index';
+import { SideNavComponent } from './side-nav/index';
 @NgModule({
     imports: [
         BrowserModule,
@@ -34,7 +36,10 @@ import { NavComponent } from './nav/index';
         LoginComponent,
         RegisterComponent,
         BluetoothComponent,
-        NavComponent
+        NavComponent,
+        SideNavComponent,
+        DashboardComponent,
+        RealtimeComponent
     ],
     providers: [
         AuthGuard,
@@ -42,7 +47,6 @@ import { NavComponent } from './nav/index';
         AuthenticationService,
         UserService,
         BluetoothService,
-
         // providers used to create fake backend
         fakeBackendProvider,
         MockBackend,

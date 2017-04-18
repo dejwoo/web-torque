@@ -1,13 +1,29 @@
-﻿<div>
-    <h1 class="display-3">Hi {{currentUser.firstName}}!</h1>
-    <p class="lead">You're logged in WebTorque!!</p>
-    <hr class="m-4">
-    <h3>All users found in localStorage</h3>
-    <ul>
-        <li *ngFor="let user of users">
-            {{user.username}} ({{user.firstName}} {{user.lastName}})
-            - <a (click)="deleteUser(user.id)">Delete</a>
-        </li>
-    </ul>
-    <p>You might try quering bluetooth devices for basic info at Bluetooth page.</p>
+﻿<div id="homeCarousel" class="carousel slide" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#homeCarousel" *ngFor="let carousel of carousels; let i=index" [attr.data-slide-to]="i" [ngClass]="index == 0 ? 'active' : ''"></li>
+	</ol>
+	<div class="carousel-inner" role="listbox">
+		<div class="carousel-item active" *ngFor="let carousel of carousels">
+			<img *ngIf="carousel.img" [src]="carousel.img.src" [alt]="carousel.img.alt" [ngClass]="carousel.img.class ? carousel.img.class : ''">
+			<div class="container">
+				<div class="carousel-caption d-none d-md-block text-left">
+					<h1>{{carousel.title}}</h1>
+					<p *ngIf="carousel.lead">{{carousel.lead}}</p>
+					<p *ngIf="carousel.button">
+						<a  [ngClass]="carousel.button.class ? carousel.button.class : 'btn btn-lg btn-primary'"
+							[routerLink]="[carousel.button.link]"
+							role="button">{{carousel.button.title}}
+						</a>
+					</p>
+				</div>
+		</div>
+	</div>
+	<a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+		<span class="sr-only">Previous</span>
+	</a>
+	<a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+		<span class="carousel-control-next-icon" aria-hidden="true"></span>
+		<span class="sr-only">Next</span>
+	</a>
 </div>

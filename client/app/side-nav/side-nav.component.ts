@@ -5,11 +5,11 @@ import { AuthenticationService } from '../_services/index';
 
 @Component({
     moduleId: module.id.toString(),
-    templateUrl: 'nav.component.html',
-    selector: 'app-nav',
+    templateUrl: 'side-nav.component.html',
+    selector: 'side-nav',
 })
 
-export class NavComponent implements OnInit {
+export class SideNavComponent implements OnInit {
     currentUser: User;
     constructor(private authenticationService:AuthenticationService) {
         authenticationService.isLoggedIn().subscribe(user => this.currentUser = user);

@@ -1,0 +1,15 @@
+﻿<div class="jumbotron">
+    <div>
+        <h1 class="display-3">Hi {{currentUser.firstName}}!</h1>
+        <p class="lead">You're logged in WebTorque!!</p>
+        <hr class="m-4">
+        <h3>All users found in localStorage</h3>
+        <ul>
+            <li *ngFor="let user of users">
+                {{user.username}} ({{user.firstName}} {{user.lastName}})
+                - <a (click)="deleteUser(user.id)">Delete</a>
+            </li>
+        </ul>
+        <p>You might try quering bluetooth devices for basic info at Bluetooth page.</p>
+    </div>
+</div>
