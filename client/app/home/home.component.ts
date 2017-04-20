@@ -2,7 +2,7 @@
 
 import { User, Carousel } from '../_models/index';
 import { AuthenticationService } from '../_services/index';
-
+var path = require('path');
 
 @Component({
     moduleId: module.id.toString(),
@@ -22,8 +22,9 @@ export class HomeComponent implements OnInit {
     			'title': "Sign up today!"
     		},
     		'img':{
-    			'src':"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
-    			'alt':"Image0"
+    			'src': require('../../assets/carousel1.png'),
+    			'alt':"Carousel 1 image",
+                'class' : 'img-fluid'
     		}
     	}];
     constructor(private authenticationService:AuthenticationService) {

@@ -9,7 +9,7 @@ module.exports = {
     'vendor': './client/vendor.ts',
     'app': './client/main.ts'
   },
-
+  watch: true,
   resolve: {
     extensions: ['.ts', '.js']
   },
@@ -28,7 +28,7 @@ module.exports = {
       loader: 'html-loader'
     }, {
       test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-      loader: 'file-loader?name=assets/[name].[hash].[ext]'
+      loader:  'file-loader?name=assets/[name].[ext]'
     }, {
       test: /\.css$/,
       exclude: helpers.root('client', 'app'),
