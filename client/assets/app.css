@@ -32,13 +32,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  min-width: 100%;
+  max-width: 100%;
   height: 26rem;
+  mix-blend-mode: multiply;
 }
 .gray-background {
   background-color: #e0e0e0;
 }
-
 /*
  * Sidebar
  */
@@ -89,4 +89,19 @@
 .placeholder img {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+/*
+ * Home screen - logoff
+ */
+.img-clip-right {
+    float: left;
+    clip-path: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+    shape-outside: polygon(0 0, 80% 0%, 100% 100%, 0% 100%);
+    shape-margin: 1rem;
+}
+.img-clip-left {
+    float: right;
+    clip-path:polygon(0 0, 100% 0%, 100% 100%, 30% 100%);
+    shape-outside: polygon(0 0, 100% 0%, 100% 100%, 30% 100%);
+    shape-margin: 1rem;
 }

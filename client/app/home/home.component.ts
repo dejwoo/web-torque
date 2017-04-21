@@ -22,11 +22,39 @@ export class HomeComponent implements OnInit {
     			'title': "Sign up today!"
     		},
     		'img':{
-    			'src': require('../../assets/carousel1.png'),
+    			'src': require('../../assets/carousel1.jpg'),
     			'alt':"Carousel 1 image",
                 'class' : 'img-fluid'
     		}
-    	}];
+    	},
+        {
+            'id':'1',
+            'title': "Real-time Dashboard",
+            'lead': "Display digital instead of old analogue!",
+            'button': {
+                'link':"/register",
+                'title': "Live demo!"
+            },
+            'img':{
+                'src': require('../../assets/carousel2.jpg'),
+                'alt':"Carousel 2 image",
+                'class' : 'img-fluid'
+            }
+        },
+        {
+            'id':'2',
+            'title': "Data Visualization",
+            'lead': "Display telemetry data for insight and enhance your driving experience!",
+            'button': {
+                'link':"/register",
+                'title': "See the example!"
+            },
+            'img':{
+                'src': require('../../assets/carousel3.jpg'),
+                'alt':"Carousel 3 image",
+                'class' : 'img-fluid'
+            }
+        }];
     constructor(private authenticationService:AuthenticationService) {
         authenticationService.isLoggedIn().subscribe(user => this.currentUser = user);
     }
