@@ -1,11 +1,13 @@
-﻿<div id="homeCarousel" class="carousel slide pb-0 mb-0" data-ride="carousel">
+﻿<div id="homeCarousel" class="carousel slide pb-0 mb-0 hidden-sm-down" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#homeCarousel" *ngFor="let carousel of carousels; let i=index" [attr.data-slide-to]="i" [ngClass]="i == 0 ? 'active' : ''"></li>
 	</ol>
 	<div class="carousel-inner" role="listbox">
 		<div *ngFor="let carousel of carousels; let i=index"
-		[ngClass]="i == 0 ? 'active carousel-item' : 'carousel-item'">
+			[ngClass]="i == 0 ? 'active carousel-item' : 'carousel-item'">
+
 			<img *ngIf="carousel.img" [src]="carousel.img.src" [alt]="carousel.img.alt" [ngClass]="carousel.img.class ? carousel.img.class : ''">
+			<!-- <img *ngIf="carousel.img" data-src="holder.js/100px100p?bg=2a2025" [alt]="carousel.img.alt" [ngClass]="carousel.img.class ? carousel.img.class : ''"> -->
 			<div class="container">
 				<div class="carousel-caption d-none d-md-block text-left">
 					<h1>{{carousel.title}}</h1>
@@ -17,47 +19,48 @@
 						</a>
 					</p>
 				</div>
+			</div>
 		</div>
+		<a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
+			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
+		</a>
+		<a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
+			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
+		</a>
 	</div>
-	<a class="carousel-control-prev" href="#homeCarousel" role="button" data-slide="prev">
-		<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-		<span class="sr-only">Previous</span>
-	</a>
-	<a class="carousel-control-next" href="#homeCarousel" role="button" data-slide="next">
-		<span class="carousel-control-next-icon" aria-hidden="true"></span>
-		<span class="sr-only">Next</span>
-	</a>
 </div>
 <main class="gray-background pt-1">
-	<div class="card mt-0 mr-1 ml-1 mb-1">
-		<div class="card-block col-11">
-			<img class="img-clip-right" data-src="holder.js/35px220/thumb" alt="Card image cap">
-			<h4 class="card-title">Card title</h4>
-			<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-			<p class="card-text">Rerum nobis voluptas reprehenderit et qui doloribus. Delectus ut alias voluptas nam harum labore autem rem. Esse dolorem repellendus autem et deleniti.
-Laborum qui explicabo fugiat et. Fugiat tempore repudiandae minus et et sint adipisci. Ad qui pariatur a autem ipsa fuga. Molestiae numquam beatae ea laborum odit.</p>
-			<a href="#" class="card-link">Card link</a>
-			<a href="#" class="card-link">Another link</a>
-		</div>
+<div class="card mt-0 mr-1 ml-1 mb-1">
+	<div class="card-block col-11">
+		<img class="img-clip-right hidden-xs-down" data-src="holder.js/35px220/thumb" alt="Card image cap">
+		<h4 class="card-title">Card title</h4>
+		<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+		<p class="card-text">Rerum nobis voluptas reprehenderit et qui doloribus. Delectus ut alias voluptas nam harum labore autem rem. Esse dolorem repellendus autem et deleniti.
+		Laborum qui explicabo fugiat et. Fugiat tempore repudiandae minus et et sint adipisci. Ad qui pariatur a autem ipsa fuga. Molestiae numquam beatae ea laborum odit.</p>
+		<a href="#" class="card-link">Card link</a>
+		<a href="#" class="card-link">Another link</a>
 	</div>
-	<div class="card m-1">
-		<div class="card-block offset-1">
-			<img class="img-clip-left" data-src="holder.js/35px220/thumb" alt="Card image cap">
-			<h4 class="card-title">Card title</h4>
-			<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-			<p class="card-text">Nemo voluptatem hic voluptatem eveniet non. Ea suscipit iure suscipit ipsum dolor recusandae recusandae qui. Quaerat aut delectus consequuntur perferendis placeat aut. Libero corrupti numquam maxime ut in iure. Rerum et delectus praesentium qui ea est.</p>
-			<a href="#" class="card-link">Card link</a>
-			<a href="#" class="card-link">Another link</a>
-		</div>
+</div>
+<div class="card m-1">
+	<div class="card-block offset-1">
+		<img class="img-clip-left hidden-xs-down" data-src="holder.js/35px220/thumb" alt="Card image cap">
+		<h4 class="card-title">Card title</h4>
+		<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+		<p class="card-text">Nemo voluptatem hic voluptatem eveniet non. Ea suscipit iure suscipit ipsum dolor recusandae recusandae qui. Quaerat aut delectus consequuntur perferendis placeat aut. Libero corrupti numquam maxime ut in iure. Rerum et delectus praesentium qui ea est.</p>
+		<a href="#" class="card-link">Card link</a>
+		<a href="#" class="card-link">Another link</a>
 	</div>
-	<div class="card m-1">
-	  <div class="card-block col-11">
-			<img class="img-clip-right" data-src="holder.js/40px220/thumb" alt="Card image cap">
-			<h4 class="card-title">Card title</h4>
-			<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-			<p class="card-text">Aliquid corrupti veniam ad. Enim nobis rem perferendis quidem velit non molestiae blanditiis. Et voluptates neque voluptatem adipisci ipsam. Assumenda deserunt aut veniam modi. Ullam expedita voluptates voluptas dignissimos. Ut ut illo minus quas.</p>
-			<a href="#" class="card-link">Card link</a>
-			<a href="#" class="card-link">Another link</a>
-		</div>
+</div>
+<div class="card m-1">
+	<div class="card-block col-11">
+		<img class="img-clip-right hidden-xs-down" data-src="holder.js/40px220/thumb" alt="Card image cap">
+		<h4 class="card-title">Card title</h4>
+		<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+		<p class="card-text">Aliquid corrupti veniam ad. Enim nobis rem perferendis quidem velit non molestiae blanditiis. Et voluptates neque voluptatem adipisci ipsam. Assumenda deserunt aut veniam modi. Ullam expedita voluptates voluptas dignissimos. Ut ut illo minus quas.</p>
+		<a href="#" class="card-link">Card link</a>
+		<a href="#" class="card-link">Another link</a>
 	</div>
+</div>
 </main>

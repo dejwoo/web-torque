@@ -1,4 +1,13 @@
-﻿a {
+﻿html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 4rem;
+}
+
+a {
     cursor: pointer;
 }
 
@@ -25,16 +34,15 @@
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-  height: 26rem;
+  height: 25vw;
   background-color: #777;
 }
 .carousel-item > img {
   position: absolute;
   top: 0;
   left: 0;
-  max-width: 100%;
-  height: 26rem;
-  mix-blend-mode: multiply;
+  min-width: 100%;
+  height: auto;
 }
 .gray-background {
   background-color: #e0e0e0;
@@ -44,17 +52,22 @@
  */
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   top: 3.5rem;
-  bottom: 0;
+  bottom: 4rem;
   left: 0;
   z-index: 1000;
-  padding: 20px;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  border-right: 1px solid #eee;
+  border-right: 1px solid rgb(41, 43, 44);
+  background-color: rgb(57, 59, 60);;
 }
-
+.sidebar-compact {
+  max-width: 2.5%;
+}
+.sidebar-push {
+  margin-left: 2.5%;
+}
 /* Sidebar navigation */
 .sidebar {
   padding-left: 0;
@@ -104,4 +117,13 @@
     clip-path:polygon(0 0, 100% 0%, 100% 100%, 30% 100%);
     shape-outside: polygon(0 0, 100% 0%, 100% 100%, 30% 100%);
     shape-margin: 1rem;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4rem;
+}
+.footer > nav {
+  min-height: 100%;
 }

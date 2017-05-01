@@ -1,14 +1,13 @@
 ﻿import { Component, OnInit } from '@angular/core';
-
 import { User, Carousel } from '../_models/index';
 import { AuthenticationService } from '../_services/index';
 var path = require('path');
+declare var window: any;
 
 @Component({
     moduleId: module.id.toString(),
     templateUrl: 'home.component.html'
 })
-
 export class HomeComponent implements OnInit {
     private currentUser: User;
     testName:String;
@@ -24,7 +23,7 @@ export class HomeComponent implements OnInit {
     		'img':{
     			'src': require('../../assets/carousel1.jpg'),
     			'alt':"Carousel 1 image",
-                'class' : 'img-fluid'
+                'class' : 'd-block img-fluid'
     		}
     	},
         {
@@ -38,7 +37,7 @@ export class HomeComponent implements OnInit {
             'img':{
                 'src': require('../../assets/carousel2.jpg'),
                 'alt':"Carousel 2 image",
-                'class' : 'img-fluid'
+                'class' : 'd-block img-fluid'
             }
         },
         {
@@ -52,13 +51,16 @@ export class HomeComponent implements OnInit {
             'img':{
                 'src': require('../../assets/carousel3.jpg'),
                 'alt':"Carousel 3 image",
-                'class' : 'img-fluid'
+                'class' : 'd-block img-fluid'
             }
         }];
     constructor(private authenticationService:AuthenticationService) {
         authenticationService.isLoggedIn().subscribe(user => this.currentUser = user);
     }
     ngOnInit() {
-    	this.testName = "test";
+    	console.log("Home initialisied");
+        if (window.Holder) {
+            window.Holder.run()
+        }
     }
 }

@@ -1,43 +1,23 @@
-﻿<nav>
-  <ul class="nav nav-pills flex-column">
-    <li class="nav-item">
-      <a class="nav-link active" href="#">Overview <span class="sr-only">(current)</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Reports</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Analytics</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Export</a>
-    </li>
-  </ul>
+﻿<nav [ngClass]="{'col-2': sidebar.state == 'full', 'col-1 sidebar-compact': sidebar.state == 'compact', 'hidden-xs-down text-white sidebar navbar navbar-inverse': true}">
 
   <ul class="nav nav-pills flex-column">
     <li class="nav-item">
-      <a class="nav-link" href="#">Nav item</a>
+      <a (click)="toggleSidebar()" class="nav-link"><i class="fa fa-bars fa-fw mr-2" aria-hidden="true"></i><span *ngIf="sidebar.state == 'full'"> Shrink Menu</span></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Nav item again</a>
+     <li class="nav-item" [routerLink]="['/dashboard']">
+      <a class="nav-link btn-link" [routerLink]="['/dashboard']" routerLinkActive="active" class="nav-link text-white"><i class="fa fa-tachometer fa-fw mr-2" aria-hidden="true"></i><span *ngIf="sidebar.state == 'full'"> Dashboard</span></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">One more nav</a>
+    <li class="nav-item" [routerLink]="['/bt']">
+      <a class="nav-link btn-link" [routerLink]="['/bt']" routerLinkActive="active" class="nav-link text-white"><i class="fa fa-bluetooth-b fa-fw mr-2" aria-hidden="true"></i><span *ngIf="sidebar.state == 'full'"> Bluetooth</span></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Another nav item</a>
+    <li class="nav-item" [routerLink]="['/vehicles']">
+      <a class="nav-link btn-link" [routerLink]="['/vehicles']" routerLinkActive="active" class="nav-link text-white"><i class="fa fa-car fa-fw mr-2" aria-hidden="true"></i><span *ngIf="sidebar.state == 'full'"> Vehicles</span></a>
     </li>
-  </ul>
-
-  <ul class="nav nav-pills flex-column">
-    <li class="nav-item">
-      <a class="nav-link" href="#">Nav item again</a>
+    <li class="nav-item" [routerLink]="['/data']">
+      <a class="nav-link btn-link" [routerLink]="['/data']" routerLinkActive="active" class="nav-link text-white"><i class="fa fa-database fa-fw mr-2" aria-hidden="true"></i><span *ngIf="sidebar.state == 'full'"> Recorded data</span></a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">One more nav</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Another nav item</a>
+    <li class="nav-item" [routerLink]="['/telemetry']">
+      <a class="nav-link btn-link" [routerLink]="['/telemetry']" routerLinkActive="active" class="nav-link text-white"><i class="fa fa-bar-chart fa-fw mr-2" aria-hidden="true"></i><span *ngIf="sidebar.state == 'full'"> Telemetry</span></a>
     </li>
   </ul>
 </nav>

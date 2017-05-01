@@ -9,9 +9,10 @@ import { RealtimeComponent } from './realtime/index';
 import { AuthGuard } from './_guards/index';
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
+    { path: '', component: HomeComponent, canActivate: [AuthGuard]},
     { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
     { path: 'login', component: LoginComponent },
+    { path: 'logout', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'bt', component: BluetoothComponent, canActivate: [AuthGuard] },
     { path: 'real-time', component: RealtimeComponent, canActivate: [AuthGuard]},

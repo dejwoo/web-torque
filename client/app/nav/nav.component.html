@@ -6,25 +6,25 @@
   <a class="navbar-brand" [routerLink]="['/dashboard']" *ngIf="currentUser">WebTorque</a>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active"  [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+      <li class="nav-item" *ngIf="currentUser" [routerLink]="['/dashboard']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a class="nav-link" [routerLink]="['/dashboard']">Home</a>
+      </li>
+      <li class="nav-item" *ngIf="!currentUser" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
-      <li class="nav-item" [routerLink]="['/bt']" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/bt']">Bluetooth</a>
+      <li class="nav-item" [routerLink]="['/about']" routerLinkActive="active">
+        <a class="nav-link" [routerLink]="['/about']">About</a>
       </li>
       <li class="nav-item" [routerLink]="['/real-time']" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/real-time']">Real-Time Monitor</a>
-      </li>
-      <li class="nav-item" [routerLink]="['/recored']" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/recored']">Recorded data</a>
+        <a class="nav-link" [routerLink]="['/real-time']">Contact</a>
       </li>
       <li class="nav-item" [routerLink]="['/help']" routerLinkActive="active">
         <a class="nav-link" [routerLink]="['/help']">Help</a>
       </li>
     </ul>
     <ul class="navbar-nav">
-      <li class="nav-item" [routerLink]="['/login']" routerLinkActive="active" *ngIf="currentUser">
-        <a class="nav-link" [routerLink]="['/login']">Logout</a>
+      <li class="nav-item" [routerLink]="['/logout']" *ngIf="currentUser">
+        <a class="nav-link" [routerLink]="['/logout']">Logout</a>
       </li>
       <li class="nav-item" [routerLink]="['/login']" routerLinkActive="active" *ngIf="!currentUser">
         <a class="nav-link" [routerLink]="['/login']">Login</a>

@@ -13,12 +13,13 @@ import { routing }        from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, BluetoothService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, BluetoothService, CommService } from './_services/index';
 import { HomeComponent } from './home/index';
 import { BluetoothComponent } from './bluetooth/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
 import { NavComponent } from './nav/index';
+import { FooterComponent } from './footer/index';
 import { RealtimeComponent } from './realtime/index';
 import { DashboardComponent } from './dashboard/index';
 import { SideNavComponent } from './side-nav/index';
@@ -39,7 +40,8 @@ import { SideNavComponent } from './side-nav/index';
         NavComponent,
         SideNavComponent,
         DashboardComponent,
-        RealtimeComponent
+        RealtimeComponent,
+        FooterComponent
     ],
     providers: [
         AuthGuard,
@@ -50,7 +52,8 @@ import { SideNavComponent } from './side-nav/index';
         // providers used to create fake backend
         fakeBackendProvider,
         MockBackend,
-        BaseRequestOptions
+        BaseRequestOptions,
+        CommService
     ],
     bootstrap: [AppComponent]
 })

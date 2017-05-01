@@ -4,8 +4,6 @@ import 'rxjs/add/observable/fromPromise';
 import 'rxjs/add/observable/throw';
 import { EmptyObservable } from 'rxjs/observable/EmptyObservable';
 import { AlertService } from '../_services/index';
-// import { RSVP } from 'rsvp';
-let RSVP = require('rsvp');
 
 @Injectable()
 export class BluetoothService {
